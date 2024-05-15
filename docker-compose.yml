@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    image: laksh2002/week5.1
+    ports:
+      - '3043:3000'
+    environment:
+      - PORT=3043
+    container_name: myapp
+    networks:
+      - my-net
+
+  app1:
+    build: .
+    image: laksh2002/week5.1
+    ports:
+      - '3044:3000'
+    environment:
+      - PORT=3044
+    container_name: myapp2
+    networks:
+      - my-net
+
+
+networks:
+  my-net:
+    driver: bridge
